@@ -37,7 +37,10 @@ namespace TBSnake
         // Spel loop
         public void Run()
         {
+            int gridSize = int.Parse(Console.ReadLine());
 
+            Game game = new Game(gridSize);
+            game.CreateBoard();
         }
     }
 }

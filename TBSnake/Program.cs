@@ -12,7 +12,9 @@ namespace TBSnake
     {
         static void Main(string[] args)
         {
-
+            int gridSize = int.Parse(Console.ReadLine());
+            Game game = new Game(gridSize);
+            game.Run();
         }
     }
 }
