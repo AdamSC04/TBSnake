@@ -18,6 +18,7 @@ namespace TBSnake
             this.x = x;
             this.y = y;
             direction = 0;
+            body = new List<Point>();
         }
 
         public void HandleInput(ConsoleKey key)
@@ -37,6 +38,13 @@ namespace TBSnake
 
         public bool IsColliding()
         {
+            foreach (Point point in body)
+            {
+                if (point.X == x && point.Y == y)
+                {
+                    return true;
+                }
+            }
             return false;
         }
     }
