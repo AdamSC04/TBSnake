@@ -9,7 +9,7 @@ namespace TBSnake
 {
     internal class Snake
     {
-        public int length, x, y, direction;
+        public int length, x, y,direction;
         List<Point> body;
 
         public Snake(int x, int y)
