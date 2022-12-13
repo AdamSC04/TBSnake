@@ -18,7 +18,7 @@ namespace TBSnake
             this.x = x;
             this.y = y;
             direction = 0;
-            body = new List<Point>();
+            body = new List<Point>() { new Point(x, y) };
         }
 
         public void HandleInput(ConsoleKey key)
