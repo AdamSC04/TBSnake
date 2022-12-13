@@ -14,7 +14,7 @@ namespace TBSnake
         {
             int gridSize = int.Parse(Console.ReadLine());
             Game game = new Game(gridSize);
-            game.Run();
+            game.CreateBoard();
         }
     }
 }
