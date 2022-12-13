@@ -44,7 +44,21 @@ namespace TBSnake
 
         public void Step()
         {
-
+            switch (direction)
+            {
+                case 0:
+                    x++;
+                    break;
+                case 1:
+                    y--;
+                    break;
+                case 2:
+                    x--;
+                    break;
+                case 3:
+                    y++;
+                    break;
+            }
         }
 
         public void DrawStep()
