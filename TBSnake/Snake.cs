@@ -22,7 +22,7 @@ namespace TBSnake
         }
 
         public void HandleInput(ConsoleKey key)
-        {
+        {   
             switch(key)
             {
                 case ConsoleKey.RightArrow:
