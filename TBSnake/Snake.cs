@@ -23,7 +23,7 @@ namespace TBSnake
 
         public void HandleInput(ConsoleKey key)
         {
-
+            
         }
 
         public void Step()
