@@ -37,13 +37,22 @@ namespace TBSnake
             }
         }
 
+        public bool InBounds()
+        {
+            if (snake._x == 0 || snake._y == 0 || snake._x == _gridSize || snake._y == _gridSize)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
         public void Run()
         {
             while (true)
             {
+                Console.CursorVisible = false;
                 while (Console.KeyAvailable)
                 {
-                    Console.CursorVisible = false;
                     ConsoleKey key = Console.ReadKey(true).Key;
                     snake.HandleInput(key);
                 }
