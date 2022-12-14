@@ -42,6 +42,8 @@ namespace TBSnake
                 case 3:
                     y++;
                     break;
+                default:
+                    break;
             }
         }
 
