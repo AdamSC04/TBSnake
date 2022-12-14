@@ -61,19 +61,16 @@ namespace TBSnake
             }
         }
 
-        public void DrawStep(int gridSize, List<Point> grid)
+        public void DrawStep()
         {
-            foreach (Point point in _body)
+            Console.SetCursorPosition(_x, _y);
+            Console.Write("#");
+            Console.SetCursorPosition(_body.Last().X, _body.Last().Y);
+            Console.Write(" ");
+            _body.Insert(0, new Point(_x, _y)); 
+            if (_length < _body.Count)
             {
-                for (int j = 0; j < gridSize; j++)
-                {
-                    if (grid[j] == point)
-                    {
-                        Console.SetCursorPosition(point.X, point.Y);
-                        Console.Write("O");
-                        grid[j] = point; //Blir ju samma. //Ta bort? //Fixa så att den skriver ut endast detta istället för hela griden.
-                    }
-                }
+                _body.RemoveAt(_length);
             }
         }
 
@@ -87,11 +84,6 @@ namespace TBSnake
                 }
             }
             return false;
-        }
-
-        public void UpdateSnake()
-        { //Olle //Här fixa snaken inför varje frame innan man använder DrawStep()
-
         }
     }
 }

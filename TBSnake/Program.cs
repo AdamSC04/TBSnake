@@ -12,7 +12,9 @@ namespace TBSnake
     {
         static void Main(string[] args)
         {
-
+            Game game = new Game();
+            game.CreateBoard();
+            game.Run();
         }
     }
 }

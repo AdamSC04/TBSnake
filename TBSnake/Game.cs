@@ -9,12 +9,13 @@ namespace TBSnake
 {
     class Game
     {
-        private Snake snake;
+        public Snake snake;
         public List<Point> _grid;
         public int _gridSize;
 
         public Game()
         {
+            snake = new Snake(10, 10);
             _gridSize = 10;
         }
 
@@ -28,11 +29,16 @@ namespace TBSnake
                 {
                     Point point = new Point(x, y);
                     _grid.Add(point);
-                    Console.Write(_grid[counter]);
+                    //Console.Write(_grid[counter]);
                     counter++;
                 }
-                Console.WriteLine();
+                //Console.WriteLine();
             }
+        }
+
+        public void Run()
+        {
+            snake.DrawStep();
         }
     }
 }
