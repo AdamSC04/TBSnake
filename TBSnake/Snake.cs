@@ -26,16 +26,16 @@ namespace TBSnake
             switch(key)
             {
                 case ConsoleKey.RightArrow:
-                    direction = 1;
+                    direction = 0;
                     break;
                 case ConsoleKey.DownArrow:
-                    direction = 2;
+                    direction = 1;
                     break;
                 case ConsoleKey.LeftArrow:
-                    direction = 3;
+                    direction = 2;
                     break;
                 case ConsoleKey.UpArrow:
-                    direction = 4;
+                    direction = 3;
                     break;
                 default:
                     break;
