@@ -18,17 +18,47 @@ namespace TBSnake
             _x = gridSize_x / 2;
             _y = gridSize_y / 2;
             _direction = 0;
-            _body = new List<Point>();
+            _body = new List<Point>() { new Point(x, y) };
         }
 
         public void HandleInput(ConsoleKey key)
-        {
-
+        {   
+            switch(key)
+            {
+                case ConsoleKey.RightArrow:
+                    direction = 0;
+                    break;
+                case ConsoleKey.DownArrow:
+                    direction = 1;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    direction = 2;
+                    break;
+                case ConsoleKey.UpArrow:
+                    direction = 3;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void Step()
         {
-
+            switch (direction)
+            {
+                case 0:
+                    x++;
+                    break;
+                case 1:
+                    y--;
+                    break;
+                case 2:
+                    x--;
+                    break;
+                case 3:
+                    y++;
+                    break;
+            }
         }
 
         public void DrawStep(int gridSize, List<Point> grid)
