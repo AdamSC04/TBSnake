@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace TBSnake
 {
-    internal class Game
+    class Game
     {
         private Snake snake;
         public List<Point> _grid;
         public int _gridSize;
 
-        public Game(int gridSize)
+        public Game()
         {
-            _gridSize = gridSize;
+            _gridSize = 10;
         }
 
         public void CreateBoard()
