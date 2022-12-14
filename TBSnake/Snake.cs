@@ -29,13 +29,13 @@ namespace TBSnake
                     _direction = 0;
                     break;
                 case ConsoleKey.DownArrow:
-                    _direction = 1;
+                    _direction = 3;
                     break;
                 case ConsoleKey.LeftArrow:
                     _direction = 2;
                     break;
                 case ConsoleKey.UpArrow:
-                    _direction = 3;
+                    _direction = 1;
                     break;
                 default:
                     break;
