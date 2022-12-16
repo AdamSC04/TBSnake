@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace TBSnake
 {
@@ -11,6 +12,7 @@ namespace TBSnake
     {
         public int _length, _x, _y, _direction;
         public List<Point> _body;
+        //Skapa game objekt
 
         public Snake(int gridSize_x, int gridSize_y)
         {
@@ -82,6 +84,15 @@ namespace TBSnake
                 {
                     return true;
                 }
+            }
+            return false;
+        }
+
+        public bool IsOverlapping(Point point)
+        {
+            foreach (Point p in _body)
+            {
+                if (p == point) return true;
             }
             return false;
         }
