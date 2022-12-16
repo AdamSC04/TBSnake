@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,17 +11,19 @@ namespace TBSnake
 {
     class Game
     {
-        public Snake snake;
-        public List<Point> _grid;
+        public Apple _apple;
+        public Snake _snake;
+        public List<Point> _grid; //DELETE
         public int _gridSize;
 
         public Game()
         {
-            snake = new Snake(10, 10);
+            _snake = new Snake(10, 10);
+            _apple = new Apple(this);
             _gridSize = 10;
         }
 
-        public void CreateBoard()
+        public void CreateBoard() //DELETE _grid
         {
             _grid = new List<Point>();
             int counter = 0;
@@ -48,16 +51,24 @@ namespace TBSnake
 
         public void Run()
         {
+            _apple.GenerateApple(_gridSize);
+            _apple.DrawApple();
             while (true)
             {
                 Console.CursorVisible = false;
                 while (Console.KeyAvailable)
                 {
                     ConsoleKey key = Console.ReadKey(true).Key;
-                    snake.HandleInput(key);
+                    _snake.HandleInput(key);
                 }
-                snake.Step();
-                snake.DrawStep();
+                if(_snake.IsOverlapping(_apple._pos))
+                {
+                    _apple.GenerateApple(_gridSize);
+                    _apple.DrawApple();
+                    _snake._length = _snake._length + 1;
+                }
+                _snake.Step();
+                _snake.DrawStep();
                 Thread.Sleep(100);
             }
         }
