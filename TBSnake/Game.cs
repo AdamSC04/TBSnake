@@ -58,9 +58,9 @@ namespace TBSnake
             }
         }
 
-        public bool InBounds() //?
+        public bool InBounds()
         {
-            if (_snake._x == 0 || _snake._y == 0 || _snake._x == _gridSize || _snake._y == _gridSize)
+            if (_snake._x == 0 || _snake._y == 0 || _snake._x == _gridSize - 1 || _snake._y == _gridSize - 1)
             {
                 return true;
             }
@@ -85,10 +85,19 @@ namespace TBSnake
                     _apple.DrawApple();
                     _snake._length = _snake._length + 1;
                 }
+                //overlapping x2 vs colliding x0?
+                //Fixa om snake overlappar sig själv
+                if(InBounds())
+                {
+                    break; //Avslutar programmet
+                }
                 _snake.Step();
                 _snake.DrawStep();
                 Thread.Sleep(100);
             }
+            Console.Clear();
+            Console.WriteLine("Spelet Avslutades.");
+            Console.WriteLine("Dina poäng: " + (_snake._length - 1));
         }
     }
 }
