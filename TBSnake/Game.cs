@@ -40,9 +40,9 @@ namespace TBSnake
             }
         }
 
-        public bool InBounds()
+        public bool InBounds() //?
         {
-            if (snake._x == 0 || snake._y == 0 || snake._x == _gridSize || snake._y == _gridSize)
+            if (_snake._x == 0 || _snake._y == 0 || _snake._x == _gridSize || _snake._y == _gridSize)
             {
                 return true;
             }
