@@ -14,6 +14,7 @@ namespace TBSnake
         {
             Game game = new Game();
             game.CreateBoard();
+            game.DrawBorder();
             game.Run();
         }
     }
