@@ -20,7 +20,7 @@ namespace TBSnake
         {
             _snake = new Snake(10, 10);
             _apple = new Apple(this);
-            _gridSize = 10;
+            _gridSize = 50;
         }
 
         public void CreateBoard() //DELETE _grid
@@ -40,6 +40,24 @@ namespace TBSnake
             }
         }
 
+        public void DrawBorder()
+        {
+            foreach (Point p in _grid)
+            {
+                if (p.X == _gridSize - 1)
+                {
+                    Console.SetCursorPosition(p.X, p.Y);
+                    Console.Write("|");
+                }
+
+                if (p.Y == _gridSize - 1)
+                {
+                    Console.SetCursorPosition(p.X, p.Y);
+                    Console.Write("-");
+                }
+            }
+        }
+
         public bool InBounds() //?
         {
             if (_snake._x == 0 || _snake._y == 0 || _snake._x == _gridSize || _snake._y == _gridSize)
@@ -51,7 +69,7 @@ namespace TBSnake
 
         public void Run()
         {
-            _apple.GenerateApple(_gridSize);
+            _apple.GenerateApple(_gridSize-1);
             _apple.DrawApple();
             while (true)
             {
