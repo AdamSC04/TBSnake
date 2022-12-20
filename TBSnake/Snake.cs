@@ -15,7 +15,7 @@ namespace TBSnake
         public List<Point> _body;
         //Skapa game objekt
 
-        public Snake(int gridSize_x, int gridSize_y)
+        public Snake(int gridSize_x, int gridSize_y) //spawn snake
         {
             _length = 3;
             _x = gridSize_x / 2;
@@ -24,7 +24,7 @@ namespace TBSnake
             _body = new List<Point>() { new Point(gridSize_x, gridSize_y) };
         }
 
-        public void HandleInput(ConsoleKey key)
+        public void HandleInput(ConsoleKey key) // input change to numbers
         {   
             switch(key)
             {
@@ -61,7 +61,7 @@ namespace TBSnake
             }
         }
 
-        public void Step()
+        public void Step() // speed 
         {
             switch (_direction)
             {
@@ -80,7 +80,7 @@ namespace TBSnake
             }
         }
 
-        public void DrawStep()
+        public void DrawStep() // snake body and movement
         {
             Console.SetCursorPosition(_x, _y);
             Console.Write("#");
@@ -92,7 +92,6 @@ namespace TBSnake
                 _body.RemoveAt(_length);
             }
         }
-
         public bool IsOverlapping(Point point)
         {
             foreach (Point p in _body)
