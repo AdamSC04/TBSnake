@@ -87,7 +87,7 @@ namespace TBSnake
                 }
                 //overlapping x2 vs colliding x0?
                 //Fixa om snake overlappar sig själv
-                if(InBounds())
+                if (InBounds())
                 {
                     break; //Avslutar programmet
                 }

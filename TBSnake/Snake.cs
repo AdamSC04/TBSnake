@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -28,15 +29,31 @@ namespace TBSnake
             switch(key)
             {
                 case ConsoleKey.RightArrow:
+                    if (_direction == 2)
+                    {
+                        break;
+                    }
                     _direction = 0;
                     break;
                 case ConsoleKey.DownArrow:
+                    if (_direction == 1)
+                    {
+                        break;
+                    }
                     _direction = 3;
                     break;
                 case ConsoleKey.LeftArrow:
+                    if (_direction == 0)
+                    {
+                        break;
+                    }
                     _direction = 2;
                     break;
                 case ConsoleKey.UpArrow:
+                    if (_direction == 3)
+                    {
+                        break;
+                    }
                     _direction = 1;
                     break;
                 default:
@@ -78,6 +95,7 @@ namespace TBSnake
 
         public bool IsColliding()
         {
+            List<Point> tempPoints = new List<Point>();
             foreach (Point point in _body)
             {
                 if (point.X == _x && point.Y == _y)
