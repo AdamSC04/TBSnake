@@ -97,7 +97,7 @@ namespace TBSnake
             }
             Console.Clear();
             Console.WriteLine("Spelet Avslutades.");
-            Console.WriteLine("Dina poäng: " + (_snake._length - 1));
+            Console.WriteLine("Dina poäng: " + (_snake._length - 3));
         }
     }
 }
