@@ -83,7 +83,7 @@ namespace TBSnake
                 {
                     _apple.GenerateApple(_gridSize);
                     _apple.DrawApple();
-                    _snake._length = _snake._length + 1;
+                    _snake._length++;
                 }
                 //overlapping x2 vs colliding x0?
                 //Fixa om snake overlappar sig själv
@@ -98,6 +98,7 @@ namespace TBSnake
             Console.Clear();
             Console.WriteLine("Spelet Avslutades.");
             Console.WriteLine("Dina poäng: " + (_snake._length - 1));
+            Console.ReadKey();
         }
     }
 }
