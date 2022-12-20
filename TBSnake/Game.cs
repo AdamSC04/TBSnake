@@ -18,9 +18,9 @@ namespace TBSnake
 
         public Game()
         {
-            _snake = new Snake(10, 10);
-            _apple = new Apple(this);
-            _gridSize = 50;
+            _snake = new Snake(6, 6);
+            _apple = new Apple(this, _snake);
+            _gridSize = 25;
         }
 
         public void CreateBoard() //DELETE _grid
@@ -98,7 +98,6 @@ namespace TBSnake
             Console.Clear();
             Console.WriteLine("Spelet Avslutades.");
             Console.WriteLine("Dina poäng: " + (_snake._length - 1));
-            Console.ReadKey();
         }
     }
 }

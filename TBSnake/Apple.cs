@@ -12,20 +12,27 @@ namespace TBSnake
         public Point _pos;
         Random _rand;
         public Game _game;
+        Snake _snake;
 
-        public Apple(Game game)
+        public Apple(Game game, Snake snake)
         {
             _game = game;
             _pos = new Point();
             _rand = new Random();
+            _snake = snake;
         }
 
         public void GenerateApple(int max)
         {
             do
             {
-                int x = _rand.Next(0, max);
-                int y = _rand.Next(0, max);
+                int x = _rand.Next(1, max - 1);
+                int y = _rand.Next(1, max - 1);
+                while (_snake._x == x || _snake._y == y)
+                {
+                    x = _rand.Next(1, max - 1);
+                    y = _rand.Next(1, max - 1);
+                }
                 _pos.X = x;
                 _pos.Y = y;
             } while (_game._snake.IsOverlapping(_pos));

@@ -17,7 +17,7 @@ namespace TBSnake
 
         public Snake(int gridSize_x, int gridSize_y)
         {
-            _length = 1;
+            _length = 3;
             _x = gridSize_x / 2;
             _y = gridSize_y / 2;
             _direction = 0;
@@ -91,19 +91,6 @@ namespace TBSnake
             {
                 _body.RemoveAt(_length);
             }
-        }
-
-        public bool IsColliding()
-        {
-            List<Point> tempPoints = new List<Point>();
-            foreach (Point point in _body)
-            {
-                if (point.X == _x && point.Y == _y)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         public bool IsOverlapping(Point point)
