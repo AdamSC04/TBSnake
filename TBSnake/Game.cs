@@ -69,7 +69,9 @@ namespace TBSnake
 
         public void Run()
         {
-            _apple.GenerateApple(_gridSize-1);
+            CreateBoard();
+            DrawBorder();
+            _apple.GenerateApple(_gridSize - 1);
             _apple.DrawApple();
             while (true)
             {
@@ -79,14 +81,12 @@ namespace TBSnake
                     ConsoleKey key = Console.ReadKey(true).Key;
                     _snake.HandleInput(key);
                 }
-                if(_snake.IsOverlapping(_apple._pos))
+                if (_snake.IsOverlapping(_apple._pos))
                 {
                     _apple.GenerateApple(_gridSize);
                     _apple.DrawApple();
                     _snake._length++;
                 }
-                //overlapping x2 vs colliding x0?
-                //Fixa om snake overlappar sig själv
                 if (InBounds())
                 {
                     break; //Avslutar programmet

@@ -12,10 +12,18 @@ namespace TBSnake
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            game.CreateBoard();
-            game.DrawBorder();
-            game.Run();
+            while(true)
+            {
+                Game game = new Game();
+                game.Run();
+                Console.WriteLine("Vill du spela igen? 1 = Ja ; Allt annat = Nej");
+                int again = int.Parse(Console.ReadLine());
+                Console.Clear();
+                if (again != 1)
+                {
+                    break;
+                }
+            }
         }
     }
 }
